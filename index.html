@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="todoApp">
+
+<head>
+    <title>to do app</title>
+    <link rel="icon" href="https://undertale.aminoapps.com/static/bower/emojify.js/images/emoji/fish.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/todosController.js"></script>
+
+</head>
+
+
+<body ng-controller="TodosController as todos">
+    <header>
+        <h1>Angular Todo App</h1>
+
+        <h3>You have {{todos.all.length}} to-dos to do!</h3>
+
+    </header>
+
+    <ul id='todos'>
+        <li ng-repeat="todo in todos.all">
+            {{todo.task}}
+        </li>
+    </ul>
+
+    <form id='add-todo' ng-submit="todos.add()">
+        <input type="text" placeholder='I need to...' ng-model="todos.newTodo.task">
+    </form>
+
+    <p>About to add to-do:
+        <strong>{{todos.newTodo.task}}</strong>
+    </p>
+    
+</body>
